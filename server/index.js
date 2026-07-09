@@ -6,7 +6,13 @@ const connectToDB = require("./config/connectToDB");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",                    // local dev
+    /\.vercel\.app$/                            // all Vercel deployments (production + preview)
+  ],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

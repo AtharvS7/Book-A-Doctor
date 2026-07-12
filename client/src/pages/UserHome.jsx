@@ -42,7 +42,9 @@ export default function UserHome() {
 
   const nav = [
     { key: "home", label: "Find Doctors", icon: "🔎" },
-    { key: "appointments", label: "My Appointments", icon: "📅" },
+    // Doctors book others as a patient too; label it "My Bookings" so it isn't
+    // confused with the "Appointment Requests" tab (patients booking them).
+    { key: "appointments", label: user?.isdoctor ? "My Bookings" : "My Appointments", icon: "📅" },
     ...(user?.isdoctor
       ? [{ key: "requests", label: "Appointment Requests", icon: "🩺" }]
       : [{ key: "apply", label: "Apply as Doctor", icon: "➕" }]),

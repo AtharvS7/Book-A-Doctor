@@ -3,7 +3,8 @@ import axios from "axios";
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 // Shared axios instance. Injects the Bearer token from localStorage on every request.
-const api = axios.create({ baseURL: API_URL });
+// timeout: Render's free tier can cold-start for ~30-50s, so give the first request room.
+const api = axios.create({ baseURL: API_URL, timeout: 60000 });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");

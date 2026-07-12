@@ -4,6 +4,11 @@ A full-stack MERN application connecting **Patients**, **Doctors**, and **Admins
 browse approved doctors, book appointments with document uploads, and track status. Doctors
 manage requests. Admins approve doctor applications and oversee the platform.
 
+> ⚠️ **This is a demo project, not production-ready.** It is built for learning and
+> portfolio purposes — free-tier hosting, seeded demo accounts, and local file storage
+> mean it is not hardened or intended for real-world use.
+
+
 ## 🚀 Live Demo
 
 | | URL |

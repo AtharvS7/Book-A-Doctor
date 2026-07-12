@@ -4,6 +4,42 @@ A full-stack MERN application connecting **Patients**, **Doctors**, and **Admins
 browse approved doctors, book appointments with document uploads, and track status. Doctors
 manage requests. Admins approve doctor applications and oversee the platform.
 
+## 🚀 Live Demo
+
+| | URL |
+|---|---|
+| **App (frontend)** | https://book-a-doctor-nine.vercel.app/ |
+| **API (backend)** | https://book-a-doctor-mdpp.onrender.com/ |
+
+> The backend is on Render's free tier — the **first request after idle may take ~30–50s** to
+> wake up. Open the API URL once and wait for `{"success":true,...}` before demoing.
+
+**Demo accounts** (password for all: `demo1234`):
+
+| Role | Email |
+|---|---|
+| Patient | `patient@demo.com` |
+| Admin | `admin@demo.com` |
+| Doctor (approved) | `doctor@demo.com` |
+
+*(To create/refresh these on the deployed DB: `cd server && node seed-demo.mjs`.)*
+
+### 60-second demo walkthrough
+
+1. **Patient** — log in as `patient@demo.com`, browse approved doctors, book an appointment
+   with `doctor@demo.com` and attach a file. See it appear as *pending*.
+2. **Doctor** — log in as `doctor@demo.com`, open appointments, approve the request, download
+   the patient's uploaded document.
+3. **Patient** — refresh: status is now *approved*, with a notification.
+4. **Admin** — log in as `admin@demo.com`, view all users/doctors/appointments, and approve or
+   reject a pending doctor application.
+5. **Apply flow** (optional) — register a new user, use *Apply as Doctor*, then approve them as
+   admin to show the full onboarding path.
+
+> **Verification:** `server/test-e2e.mjs` exercises the entire flow above against a running API
+> and all 28 checks pass. Run it with `node test-e2e.mjs` (defaults to localhost; edit `BASE`
+> to point at the live URL).
+
 ## Tech Stack
 
 **Frontend (`/client`)** — React 19 (Vite), React Router v6, Axios, Bootstrap + React-Bootstrap,
